@@ -6,6 +6,7 @@ let operand2;
 let operator;
 
 const ALL_CLEAR = "all-clear";
+const POSITIVE_NEGATIVE = "positive-negative";
 
 function handleClick(event) {
     if (event.target.classList.contains("number")) {
@@ -14,6 +15,13 @@ function handleClick(event) {
         }
     } else if (event.target.id === ALL_CLEAR) {
         display.textContent = "";
+    } else if (event.target.id === POSITIVE_NEGATIVE) {
+        if (display.textContent.length === 0 ||
+            display.textContent.at(0) !== '-') {
+            display.textContent = '-' + display.textContent;
+        } else {
+            display.textContent = display.textContent.slice(1);
+        }
     }
 }
 

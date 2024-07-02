@@ -48,7 +48,6 @@ body {
 
 button {
     width: 25%;
-    background-color: green;
     border-style: none;
     padding: 0;
     border-radius: 6px;
@@ -57,4 +56,16 @@ button {
 
 #zero {
     width: 51%;
+}
+
+.function {
+    background-color: dodgerblue;
+}
+
+.operation {
+    background-color: #FF8F1F;
+}
+
+.number {
+    background-color: #217C7E;
 }

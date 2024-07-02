@@ -1,6 +1,19 @@
+const buttons = document.querySelector("#buttons");
+const display = document.querySelector("#display");
+
 let operand1;
 let operand2;
 let operator;
+
+function handleClick(event) {
+    if (event.target.classList.contains("number")) {
+        if (display.textContent.length < 8) {
+            display.textContent += event.target.textContent;
+        }
+    }
+}
+
+buttons.addEventListener("click", handleClick);
 
 function operate(operator, operand1, operand2) {
     if (operator === "+") return add(operand1, operand2);

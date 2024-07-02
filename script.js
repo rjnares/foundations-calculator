@@ -5,11 +5,15 @@ let operand1;
 let operand2;
 let operator;
 
+const ALL_CLEAR = "all-clear";
+
 function handleClick(event) {
     if (event.target.classList.contains("number")) {
         if (display.textContent.length < 8) {
             display.textContent += event.target.textContent;
         }
+    } else if (event.target.id === ALL_CLEAR) {
+        display.textContent = "";
     }
 }
 

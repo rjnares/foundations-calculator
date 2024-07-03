@@ -7,6 +7,7 @@ let operator;
 
 const ALL_CLEAR = "all-clear";
 const POSITIVE_NEGATIVE = "positive-negative";
+const DELETE = "delete";
 
 function handleClick(event) {
     if (event.target.classList.contains("number")) {
@@ -22,6 +23,8 @@ function handleClick(event) {
         } else {
             display.textContent = display.textContent.slice(1);
         }
+    } else if (event.target.id === DELETE) {
+        display.textContent = display.textContent.slice(0, -1);
     }
 }
 

@@ -9,22 +9,16 @@ const ALL_CLEAR = "all-clear";
 const POSITIVE_NEGATIVE = "positive-negative";
 const DELETE = "delete";
 
-function updateOperands(newDisplayContent) {
-    const newOperandValue = newDisplayContent.includes(".") ?
-                                parseFloat(newDisplayContent) :
-                                parseInt(newDisplayContent);
-
-    if (operator === undefined) {
-        operand1 = newOperandValue;
-    } else {
-        operand2 = newOperandValue;
-    }
-}
-
-function addNumber(number) {
+function addNumberToken(numberToken) {
     if (display.textContent.length < 8) {
-        const newDisplayContent = display.textContent + number;
-        updateOperands(newDisplayContent);
+        const newDisplayContent = display.textContent + numberToken;
+
+        if (operator === undefined) {
+            operand1 = parseFloat(newDisplayContent);
+        } else {
+            operand2 = parseFloat(newDisplayContent);
+        }
+    
         display.textContent = newDisplayContent;
     }
 }
@@ -41,7 +35,7 @@ function togglePositiveNegative() {
 
 function handleClick(event) {
     if (event.target.classList.contains("number")) {
-        addNumber(event.target.textContent);
+        addNumberToken(event.target.textContent);
     } else if (event.target.id === ALL_CLEAR) {
         display.textContent = "";
     } else if (event.target.id === POSITIVE_NEGATIVE) {

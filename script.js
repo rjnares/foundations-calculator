@@ -29,18 +29,26 @@ function addNumber(number) {
     }
 }
 
+function togglePositiveNegative() {
+    let newDisplayContent;
+
+    if (display.textContent.startsWith("-")) {
+        newDisplayContent = display.textContent.slice(1);
+    } else {
+        newDisplayContent = "-" + display.textContent;
+    }
+
+    updateOperands(newDisplayContent);
+    display.textContent = newDisplayContent;
+}
+
 function handleClick(event) {
     if (event.target.classList.contains("number")) {
         addNumber(event.target.textContent);
     } else if (event.target.id === ALL_CLEAR) {
         display.textContent = "";
     } else if (event.target.id === POSITIVE_NEGATIVE) {
-        if (display.textContent.length === 0 ||
-            display.textContent.at(0) !== '-') {
-            display.textContent = '-' + display.textContent;
-        } else {
-            display.textContent = display.textContent.slice(1);
-        }
+        togglePositiveNegative();
     } else if (event.target.id === DELETE) {
         display.textContent = display.textContent.slice(0, -1);
     }

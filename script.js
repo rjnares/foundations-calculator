@@ -30,16 +30,13 @@ function addNumber(number) {
 }
 
 function togglePositiveNegative() {
-    let newDisplayContent;
-
-    if (display.textContent.startsWith("-")) {
-        newDisplayContent = display.textContent.slice(1);
+    if (operator === undefined) {
+        operand1 = -operand1;
+        display.textContent = operand1.toString().slice(0, 8);
     } else {
-        newDisplayContent = "-" + display.textContent;
+        operand2 = -operand2;
+        display.textContent = operand2.toString().slice(0, 8);
     }
-
-    updateOperands(newDisplayContent);
-    display.textContent = newDisplayContent;
 }
 
 function handleClick(event) {
@@ -52,6 +49,10 @@ function handleClick(event) {
     } else if (event.target.id === DELETE) {
         display.textContent = display.textContent.slice(0, -1);
     }
+
+    console.log("Operand1: " + operand1);
+    console.log("Operand2: " + operand2);
+    console.log("Operator: " + operator);
 }
 
 buttons.addEventListener("click", handleClick);

@@ -1,8 +1,8 @@
 const buttons = document.querySelector("#buttons");
 const display = document.querySelector("#display");
 
-let operand1;
-let operand2;
+let operand1 = 0;
+let operand2 = 0;
 let operator;
 
 const ALL_CLEAR = "all-clear";
@@ -23,6 +23,13 @@ function addNumberToken(numberToken) {
     }
 }
 
+function allClear() {
+    operand1 = 0;
+    operand2 = 0;
+    operator = undefined;
+    display.textContent = "0";
+}
+
 function togglePositiveNegative() {
     if (operator === undefined) {
         operand1 = -operand1;
@@ -37,7 +44,7 @@ function handleClick(event) {
     if (event.target.classList.contains("number")) {
         addNumberToken(event.target.textContent);
     } else if (event.target.id === ALL_CLEAR) {
-        display.textContent = "";
+        allClear();
     } else if (event.target.id === POSITIVE_NEGATIVE) {
         togglePositiveNegative();
     } else if (event.target.id === DELETE) {

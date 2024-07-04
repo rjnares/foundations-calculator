@@ -11,11 +11,21 @@ const DELETE = "delete";
 
 function addNumberToken(numberToken) {
     if (display.textContent.length < 8) {
+        let newDisplayContent;
+
         if (display.textContent === "0" && numberToken !== ".") {
-            display.textContent = numberToken;
+            newDisplayContent = numberToken;
         } else {
-            display.textContent += numberToken;
+            newDisplayContent = display.textContent + numberToken;
         }
+
+        if (operator === undefined) {
+            operand1 = parseFloat(newDisplayContent);
+        } else {
+            operand2 = parseFloat(newDisplayContent);
+        }
+        
+        display.textContent = newDisplayContent;
     }
 }
 

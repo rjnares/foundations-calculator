@@ -24,7 +24,7 @@ function addNumberToken(numberToken) {
         } else {
             operand2 = parseFloat(newDisplayContent);
         }
-        
+
         display.textContent = newDisplayContent;
     }
 }
@@ -38,10 +38,10 @@ function allClear() {
 
 function togglePositiveNegative() {
     if (operator === undefined) {
-        operand1 = -(parseFloat(display.textContent));
+        operand1 = -operand1;
         display.textContent = operand1.toString().slice(0, 8);
     } else {
-        operand2 = -(parseFloat(display.textContent));
+        operand2 = -operand2;
         display.textContent = operand2.toString().slice(0, 8);
     }
 }

@@ -46,6 +46,38 @@ function togglePositiveNegative() {
     }
 }
 
+function deleteFunction() {
+    let newDisplayContent;
+
+    if (operator === undefined) {
+        if (display.textContent.length === 8 && operand1 < 0) {
+            operand1 = -operand1;
+            newDisplayContent = operand1.toString();
+        } else {
+            newDisplayContent = display.textContent.slice(0, -1);
+            
+            if (newDisplayContent === "" || newDisplayContent === "-") {
+                newDisplayContent = "0";
+            }
+            
+            operand1 = parseFloat(newDisplayContent);
+        }
+    } else if (display.textContent.length === 8 && operand2 < 0) {
+        operand2 = -operand2;
+        newDisplayContent = operand2.toString();
+    } else {
+        newDisplayContent = display.textContent.slice(0, -1);
+
+        if (newDisplayContent === "" || newDisplayContent === "-") {
+            newDisplayContent = "0";
+        }
+
+        operand2 = parseFloat(newDisplayContent);
+    }
+
+    display.textContent = newDisplayContent;
+}
+
 function handleClick(event) {
     if (event.target.classList.contains("number")) {
         addNumberToken(event.target.textContent);
@@ -54,7 +86,7 @@ function handleClick(event) {
     } else if (event.target.id === POSITIVE_NEGATIVE) {
         togglePositiveNegative();
     } else if (event.target.id === DELETE) {
-        display.textContent = display.textContent.slice(0, -1);
+        deleteFunction();
     }
 
     console.log("Operand1: " + operand1);

@@ -28,10 +28,10 @@ function allClear() {
 
 function togglePositiveNegative() {
     if (operator === undefined) {
-        operand1 = -operand1;
+        operand1 = -(parseFloat(display.textContent));
         display.textContent = operand1.toString().slice(0, 8);
     } else {
-        operand2 = -operand2;
+        operand2 = -(parseFloat(display.textContent));
         display.textContent = operand2.toString().slice(0, 8);
     }
 }

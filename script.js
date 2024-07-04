@@ -9,11 +9,29 @@ const ALL_CLEAR = "all-clear";
 const POSITIVE_NEGATIVE = "positive-negative";
 const DELETE = "delete";
 
+function updateOperands(newDisplayContent) {
+    const newOperandValue = newDisplayContent.includes(".") ?
+                                parseFloat(newDisplayContent) :
+                                parseInt(newDisplayContent);
+
+    if (operator === undefined) {
+        operand1 = newOperandValue;
+    } else {
+        operand2 = newOperandValue;
+    }
+}
+
+function addNumber(number) {
+    if (display.textContent.length < 8) {
+        const newDisplayContent = display.textContent + number;
+        updateOperands(newDisplayContent);
+        display.textContent = newDisplayContent;
+    }
+}
+
 function handleClick(event) {
     if (event.target.classList.contains("number")) {
-        if (display.textContent.length < 8) {
-            display.textContent += event.target.textContent;
-        }
+        addNumber(event.target.textContent);
     } else if (event.target.id === ALL_CLEAR) {
         display.textContent = "";
     } else if (event.target.id === POSITIVE_NEGATIVE) {

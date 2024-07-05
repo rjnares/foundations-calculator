@@ -48,10 +48,12 @@ function allClear() {
 }
 
 function togglePositiveNegative() {
-    if (display.textContent.startsWith("-")) {
-        display.textContent = display.textContent.slice(1);
-    } else if (display.textContent.length < 8 && display.textContent !== "0") {
-        display.textContent = "-" + display.textContent;
+    if (operator === undefined) {
+        operand1 = -operand1;
+        display.textContent = operand1.toString().slice(0, 8);
+    } else {
+        operand2 = -operand2;
+        display.textContent = operand2.toString().slice(0, 8);
     }
 }
 

@@ -19,7 +19,10 @@ function addNumberToken(numberToken) {
         let newDisplayContent;
 
         if (operator === undefined) {
-            if (operand1 === 0) {
+            if (numberToken === ".") {
+                if (display.textContent.includes(".")) return;
+                newDisplayContent = operand1.toString() + ".";
+            } else if (operand1 === 0 && display.textContent.length === 1) {
                 newDisplayContent = numberToken;
             } else {
                 newDisplayContent = display.textContent + numberToken;
@@ -27,7 +30,10 @@ function addNumberToken(numberToken) {
 
             operand1 = parseFloat(newDisplayContent);
         } else {
-            if (operand2 === 0) {
+            if (numberToken === ".") {
+                if (display.textContent.includes(".")) return;
+                newDisplayContent = operand2.toString() + ".";
+            } else if (operand2 === 0 && display.textContent.length === 1) {
                 newDisplayContent = numberToken;
             } else {
                 newDisplayContent = display.textContent + numberToken;

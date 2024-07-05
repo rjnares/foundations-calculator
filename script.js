@@ -65,7 +65,7 @@ function executeOperation(operation) {
 
 function equalsOperation() {
     operand1 = operate();
-    operand2 = 0;
+    operand2 = undefined;
     operator = undefined;
 
     display.textContent = operand1.toString().slice(0, 8);

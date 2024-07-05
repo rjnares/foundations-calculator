@@ -95,6 +95,17 @@ function addOperation() {
     display.textContent = operand1.toString().slice(0, 8);
 }
 
+function subtractOperation() {
+    if (operator !== undefined) {
+        operand1 = operate();
+    }
+
+    operator = SUBTRACT;
+    operand2 = 0;
+
+    display.textContent = operand1.toString().slice(0, 8);
+}
+
 function equalsOperation() {
     operand1 = operate();
     operand2 = 0;
@@ -114,6 +125,8 @@ function handleClick(event) {
         deleteFunction();
     } else if (event.target.id === ADD) {
         addOperation();
+    } else if (event.target.id === SUBTRACT) {
+        subtractOperation();
     } else if (event.target.id === EQUALS) {
         equalsOperation();
     }

@@ -64,9 +64,25 @@ function togglePositiveNegative() {
 }
 
 function deleteFunction() {
-    let newDisplayContent = display.textContent.slice(0, -1);
+    let newDisplayContent;
 
-    if (newDisplayContent === "") {
+    if (operator === undefined) {
+        if (operand1.toString().length > 8 && operand1 < 0) {
+            operand1 = -operand1;
+            newDisplayContent = operand1.toString();
+        } else {
+            newDisplayContent = display.textContent.slice(0, -1);
+        }
+    } else {
+        if (operand2.toString().length > 8 && operand2 < 0) {
+            operand2 = -operand2;
+            newDisplayContent = operand2.toString();
+        } else {
+            newDisplayContent = display.textContent.slice(0, -1);
+        }
+    }
+
+    if (newDisplayContent === "" || newDisplayContent === "-") {
         newDisplayContent = "0";
     }
 

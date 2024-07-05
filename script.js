@@ -116,6 +116,10 @@ function handleClick(event) {
         executeOperation(ADD);
     } else if (event.target.id === SUBTRACT) {
         executeOperation(SUBTRACT);
+    } else if (event.target.id === MULTIPLY) {
+        executeOperation(MULTIPLY);
+    } else if (event.target.id === DIVIDE) {
+        executeOperation(DIVIDE);
     } else if (event.target.id === EQUALS) {
         equalsOperation();
     }
@@ -147,6 +151,6 @@ function multiply(operand1, operand2) {
 }
 
 function divide(operand1, operand2) {
-    if (operand2 === 0) return "Really bruh?";
+    if (operand2 === 0) return "bruh";
     return operand1 / operand2;
 }

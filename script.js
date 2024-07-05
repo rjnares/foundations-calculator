@@ -149,6 +149,7 @@ function operate() {
     if (operator === SUBTRACT) return subtract(operand1, operand2);
     if (operator === MULTIPLY) return multiply(operand1, operand2);
     if (operator === DIVIDE) return divide(operand1, operand2);
+    return operand1;
 }
 
 function add(operand1, operand2) {

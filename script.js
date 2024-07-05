@@ -136,10 +136,6 @@ function handleClick(event) {
     } else if (event.target.id === EQUALS) {
         equalsOperation();
     }
-
-    console.log("Operand1: " + operand1);
-    console.log("Operand2: " + operand2);
-    console.log("Operator: " + operator);
 }
 
 buttons.addEventListener("click", handleClick);

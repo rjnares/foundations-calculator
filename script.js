@@ -8,6 +8,11 @@ let operator;
 const ALL_CLEAR = "all-clear";
 const POSITIVE_NEGATIVE = "positive-negative";
 const DELETE = "delete";
+const ADD = "add";
+const SUBTRACT = "subtract";
+const MULTIPLY = "multiply";
+const DIVIDE = "divide";
+const EQUALS = "equals";
 
 function addNumberToken(numberToken) {
     if (display.textContent.length < 8) {
@@ -78,6 +83,26 @@ function deleteFunction() {
     display.textContent = newDisplayContent;
 }
 
+function addOperation() {
+    if (operator !== undefined) {
+        operand1 = operate();
+    }
+
+    operator = ADD;
+    operand2 = 0;
+
+    display.textContent = operand1.toString().slice(0, 8);
+}
+
+function equalsOperation() {
+    result = operate();
+    operand1 = 0;
+    operand2 = 0;
+    operator = undefined;
+
+    display.textContent = result.toString().slice(0, 8);
+}
+
 function handleClick(event) {
     if (event.target.classList.contains("number")) {
         addNumberToken(event.target.textContent);
@@ -87,6 +112,10 @@ function handleClick(event) {
         togglePositiveNegative();
     } else if (event.target.id === DELETE) {
         deleteFunction();
+    } else if (event.target.id === ADD) {
+        addOperation();
+    } else if (event.target.id === EQUALS) {
+        equalsOperation();
     }
 
     console.log("Operand1: " + operand1);
@@ -96,11 +125,11 @@ function handleClick(event) {
 
 buttons.addEventListener("click", handleClick);
 
-function operate(operator, operand1, operand2) {
-    if (operator === "+") return add(operand1, operand2);
-    if (operator === "-") return subtract(operand1, operand2);
-    if (operator === "*") return multiply(operand1, operand2);
-    if (operator === "/") return divide(operand1, operand2);
+function operate() {
+    if (operator === ADD) return add(operand1, operand2);
+    if (operator === SUBTRACT) return subtract(operand1, operand2);
+    if (operator === MULTIPLY) return multiply(operand1, operand2);
+    if (operator === DIVIDE) return divide(operand1, operand2);
 }
 
 function add(operand1, operand2) {

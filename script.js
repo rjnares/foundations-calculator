@@ -31,9 +31,11 @@ function addNumberToken(numberToken) {
             operand1 = parseFloat(newDisplayContent);
         } else {
             if (numberToken === ".") {
-                if (display.textContent.includes(".")) return;
                 newDisplayContent = operand2.toString() + ".";
-            } else if (operand2 === 0 && display.textContent.length === 1) {
+                if (newDisplayContent.indexOf(".") !== newDisplayContent.lastIndexOf(".")) {
+                    return;
+                }
+            } else if (operand2 === 0 && display.textContent.at(-1) !== ".") {
                 newDisplayContent = numberToken;
             } else {
                 newDisplayContent = display.textContent + numberToken;

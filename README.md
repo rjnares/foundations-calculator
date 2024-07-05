@@ -17,3 +17,7 @@ The project consists of a UI that has a display for current values and buttons f
 ## Skills Applied
 
 The goal of this simple project was to apply all the skills learned from the [Foundations](https://www.theodinproject.com/paths/foundations/courses/foundations) course. This includes HTML, CSS, and JavaScript basics.
+
+## Live View
+
+Click [here](https://rjnares.github.io/foundations-calculator/) for a live view of this project.

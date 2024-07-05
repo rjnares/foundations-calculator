@@ -1,8 +1,8 @@
 const buttons = document.querySelector("#buttons");
 const display = document.querySelector("#display");
 
-let operand1;
-let operand2;
+let operand1 = 0;
+let operand2 = 0;
 let operator;
 
 const ALL_CLEAR = "all-clear";
@@ -16,20 +16,33 @@ const EQUALS = "equals";
 
 function addNumberToken(numberToken) {
     if (display.textContent.length < 8) {
-        if (numberToken === ".") {
-            if (display.textContent.includes(".")) return;
-            display.textContent += numberToken;
-        } else if (display.textContent === "0") {
-            display.textContent = numberToken;
+        let newDisplayContent;
+
+        if (operator === undefined) {
+            if (operand1 === 0) {
+                newDisplayContent = numberToken;
+            } else {
+                newDisplayContent = display.textContent + numberToken;
+            }
+
+            operand1 = parseFloat(newDisplayContent);
         } else {
-            display.textContent += numberToken;
+            if (operand2 === 0) {
+                newDisplayContent = numberToken;
+            } else {
+                newDisplayContent = display.textContent + numberToken;
+            }
+
+            operand2 = parseFloat(newDisplayContent);
         }
+
+        display.textContent = newDisplayContent;
     }
 }
 
 function allClear() {
-    operand1 = undefined;
-    operand2 = undefined;
+    operand1 = 0;
+    operand2 = 0;
     operator = undefined;
     display.textContent = "0";
 }

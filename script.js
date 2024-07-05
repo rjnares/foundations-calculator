@@ -84,23 +84,12 @@ function deleteFunction() {
     display.textContent = newDisplayContent;
 }
 
-function addOperation() {
+function executeOperation(operation) {
     if (operator !== undefined) {
         operand1 = operate();
     }
 
-    operator = ADD;
-    operand2 = 0;
-
-    display.textContent = operand1.toString().slice(0, 8);
-}
-
-function subtractOperation() {
-    if (operator !== undefined) {
-        operand1 = operate();
-    }
-
-    operator = SUBTRACT;
+    operator = operation;
     operand2 = 0;
 
     display.textContent = operand1.toString().slice(0, 8);
@@ -124,9 +113,9 @@ function handleClick(event) {
     } else if (event.target.id === DELETE) {
         deleteFunction();
     } else if (event.target.id === ADD) {
-        addOperation();
+        executeOperation(ADD);
     } else if (event.target.id === SUBTRACT) {
-        subtractOperation();
+        executeOperation(SUBTRACT);
     } else if (event.target.id === EQUALS) {
         equalsOperation();
     }

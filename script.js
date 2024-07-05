@@ -76,7 +76,7 @@ function executeOperation(operation) {
         operand1 = operate();
     }
 
-    operand2 = undefined;
+    operand2 = 0;
     operator = operation;
 
     display.textContent = operand1.toString().slice(0, 8);

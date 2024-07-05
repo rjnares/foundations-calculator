@@ -58,8 +58,14 @@ function togglePositiveNegative() {
 function deleteFunction() {
     let newDisplayContent = display.textContent.slice(0, -1);
 
-    if (!parseFloat(newDisplayContent)) {
+    if (newDisplayContent === "") {
         newDisplayContent = "0";
+    }
+
+    if (operator === undefined) {
+        operand1 = parseFloat(newDisplayContent);
+    } else {
+        operand2 = parseFloat(newDisplayContent);
     }
 
     display.textContent = newDisplayContent;

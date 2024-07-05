@@ -43,32 +43,10 @@ function togglePositiveNegative() {
 }
 
 function deleteFunction() {
-    let newDisplayContent;
+    let newDisplayContent = display.textContent.slice(0, -1);
 
-    if (operator === undefined) {
-        if (display.textContent.length === 8 && operand1 < 0) {
-            operand1 = -operand1;
-            newDisplayContent = operand1.toString();
-        } else {
-            newDisplayContent = display.textContent.slice(0, -1);
-            
-            if (newDisplayContent === "" || newDisplayContent === "-") {
-                newDisplayContent = "0";
-            }
-            
-            operand1 = parseFloat(newDisplayContent);
-        }
-    } else if (display.textContent.length === 8 && operand2 < 0) {
-        operand2 = -operand2;
-        newDisplayContent = operand2.toString();
-    } else {
-        newDisplayContent = display.textContent.slice(0, -1);
-
-        if (newDisplayContent === "" || newDisplayContent === "-") {
-            newDisplayContent = "0";
-        }
-
-        operand2 = parseFloat(newDisplayContent);
+    if (!parseFloat(newDisplayContent)) {
+        newDisplayContent = "0";
     }
 
     display.textContent = newDisplayContent;

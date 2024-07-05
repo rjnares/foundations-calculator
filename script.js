@@ -16,9 +16,10 @@ const EQUALS = "equals";
 
 function addNumberToken(numberToken) {
     if (display.textContent.length < 8) {
+        const operand = operator === undefined ? operand1 : operand2;
         let newDisplayContent;
 
-        if (display.textContent === "0" && numberToken !== ".") {
+        if (operand === 0 && numberToken !== ".") {
             newDisplayContent = numberToken;
         } else {
             newDisplayContent = display.textContent + numberToken;

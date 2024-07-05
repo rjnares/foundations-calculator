@@ -99,21 +99,21 @@ function deleteFunction() {
 
 function executeOperation(operation) {
     if (operator !== undefined) {
-        operand1 = operate();
+        operand1 = parseFloat(operate().toString().slice(0, 8));
     }
 
     operand2 = 0;
     operator = operation;
 
-    display.textContent = operand1.toString().slice(0, 8);
+    display.textContent = operand1.toString();
 }
 
 function equalsOperation() {
-    operand1 = operate();
+    operand1 = parseFloat(operate().toString().slice(0, 8));
     operand2 = 0;
     operator = undefined;
 
-    display.textContent = operand1.toString().slice(0, 8);
+    display.textContent = operand1.toString();
 }
 
 function handleClick(event) {

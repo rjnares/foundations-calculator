@@ -16,22 +16,14 @@ const EQUALS = "equals";
 
 function addNumberToken(numberToken) {
     if (display.textContent.length < 8) {
-        const operand = operator === undefined ? operand1 : operand2;
-        let newDisplayContent;
-
-        if (operand === 0 && numberToken !== ".") {
-            newDisplayContent = numberToken;
+        if (numberToken === ".") {
+            if (display.textContent.includes(".")) return;
+            display.textContent += numberToken;
+        } else if (display.textContent === "0") {
+            display.textContent = numberToken;
         } else {
-            newDisplayContent = display.textContent + numberToken;
+            display.textContent += numberToken;
         }
-
-        if (operator === undefined) {
-            operand1 = parseFloat(newDisplayContent);
-        } else {
-            operand2 = parseFloat(newDisplayContent);
-        }
-
-        display.textContent = newDisplayContent;
     }
 }
 

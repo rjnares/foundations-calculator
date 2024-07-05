@@ -1,8 +1,8 @@
 const buttons = document.querySelector("#buttons");
 const display = document.querySelector("#display");
 
-let operand1 = 0;
-let operand2 = 0;
+let operand1;
+let operand2;
 let operator;
 
 const ALL_CLEAR = "all-clear";
@@ -28,8 +28,8 @@ function addNumberToken(numberToken) {
 }
 
 function allClear() {
-    operand1 = 0;
-    operand2 = 0;
+    operand1 = undefined;
+    operand2 = undefined;
     operator = undefined;
     display.textContent = "0";
 }

@@ -96,12 +96,11 @@ function addOperation() {
 }
 
 function equalsOperation() {
-    result = operate();
-    operand1 = 0;
+    operand1 = operate();
     operand2 = 0;
     operator = undefined;
 
-    display.textContent = result.toString().slice(0, 8);
+    display.textContent = operand1.toString().slice(0, 8);
 }
 
 function handleClick(event) {
